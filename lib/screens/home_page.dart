@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../components/blog_view.dart';
+import '../maps/blog_info.dart';
+import 'blog_configure.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 4, vsync: this);
@@ -93,46 +95,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
+              //BLOG LIST
               Container(
                 padding: const EdgeInsets.only(top: 20),
-                height: 360,
+                height: 380,
                 width: double.maxFinite,
                 child: TabBarView(
                   controller: _tabController,
                   children: [
+                    //GENERAL BLOGS
                     ListView.builder(
-                        itemCount: 4,
+                        itemCount: 1,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            width: 250,
-                            child: const BlogComponent(title: 'The Impact of Climate change on Wildlife', description: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing...', imageUrl: 'https://images.pexels.com/photos/18793116/pexels-photo-18793116/free-photo-of-a-woman-in-a-jacket-standing-in-front-of-a-carousel.jpeg',)
+                          return Row(
+                            children: blogInfo.map((singleBlog) => BlogConfigure(blog: singleBlog,)).toList(),
                           );
                         }),
-                    ListView.builder(
-                        itemCount: 4,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            margin: EdgeInsets.only(right: 10),
-                            width: 200,
-                            height: 300,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: const Color(0xffeef8ff),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width:100,
-                                  decoration: const BoxDecoration(
-                                      image: DecorationImage(image: AssetImage("assets/images/avatar.jpg"))
-                                  ),
-                                )
-                              ],
-                            ),
-                          );
-                        }),
+                    //MOBILE APP BLOGS
                     ListView.builder(
                         itemCount: 4,
                         scrollDirection: Axis.horizontal,
@@ -157,6 +137,32 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             ),
                           );
                         }),
+                    //CLOUD BLOGS
+                    ListView.builder(
+                        itemCount: 4,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            margin: EdgeInsets.only(right: 10),
+                            width: 200,
+                            height: 300,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color(0xffeef8ff),
+                            ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  width:100,
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(image: AssetImage("assets/images/avatar.jpg"))
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        }),
+                    //WEB APP BLOGS
                     ListView.builder(
                         itemCount: 4,
                         scrollDirection: Axis.horizontal,

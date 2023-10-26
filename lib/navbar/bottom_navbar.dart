@@ -32,23 +32,22 @@ class _BottomNavbarState extends State<BottomNavbar> {
       backgroundColor: Colors.white,
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        unselectedFontSize: 0,
-        selectedFontSize: 0,
+        unselectedFontSize: 14,
+        selectedFontSize: 14,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         onTap: onTap,
         currentIndex: currentIndex,
-        selectedItemColor: Colors.black54,
+        selectedItemColor: const Color(0xff359cdd),
         unselectedItemColor: Colors.grey.withOpacity(0.5),
-        showUnselectedLabels: false,
-        showSelectedLabels: false,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
         elevation: 0,
         items: const [
           BottomNavigationBarItem(label:"Home", icon: Icon(Icons.home)),
           BottomNavigationBarItem(label:"List", icon: Icon(Icons.list)),
           BottomNavigationBarItem(label:"Topic", icon: Icon(Icons.topic)),
           BottomNavigationBarItem(label:"Profile", icon: Icon(Icons.person)),
-
         ],
       )
     );

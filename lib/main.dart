@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Tech Talks',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffeef8ff)),
         useMaterial3: true,
       ),
       home: const BottomNavbar(),
